@@ -1,5 +1,5 @@
 {
-  "name": "neat-email-smpt",
+  "name": "neat-email-smtp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nexum/neat-email-smpt.git"
+    "url": "git+https://github.com/Nexum/neat-email-smtp.git"
   },
   "author": "Dominik Kienzler <d.kienzler@dominik-kienzler.de>",
   "license": "ISC",
