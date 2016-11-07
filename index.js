@@ -5,7 +5,6 @@ var Application = require("neat-base").Application;
 var Module = require("neat-base").Module;
 var Tools = require("neat-base").Tools;
 var nodemailer = require('nodemailer');
-var transport = require("nodemailer-sendmail-transport");
 var striptags = require("striptags");
 var Promise = require("bluebird");
 
@@ -23,7 +22,7 @@ module.exports = class Email extends Module {
     init() {
         return new Promise((resolve, reject) => {
             this.log.debug("Initializing...");
-            this.transporter = nodemailer.createTransport(transport(this.config.transport));
+            this.transporter = nodemailer.createTransport(this.config.transport);
             resolve(this);
         });
     }
