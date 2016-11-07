@@ -81,9 +81,10 @@ module.exports = class Email extends Module {
         };
 
         return new Promise((resolve, reject) => {
-            this.transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    return reject(error);
+            this.transporter.sendMail(mailOptions, (err, info) => {
+                if (err) {
+                    this.log.error(err);
+                    return reject(err);
                 }
 
                 resolve(info);
