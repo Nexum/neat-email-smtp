@@ -22,6 +22,8 @@ module.exports = class Email extends Module {
     init() {
         return new Promise((resolve, reject) => {
             this.log.debug("Initializing...");
+            this.log.debug("Using config");
+            this.log.debug(this.config.transport);
             this.transporter = nodemailer.createTransport(this.config.transport);
             resolve(this);
         });
@@ -81,7 +83,8 @@ module.exports = class Email extends Module {
         };
 
         return new Promise((resolve, reject) => {
-            this.transporter.sendMail(mailOptions, (err, info) => {
+            this.log.debug("Sending email to: " + to + " from:" + from + " with subject: " + options.subject);
+            return this.transporter.sendMail(mailOptions, (err, info) => {
                 if (err) {
                     this.log.error(err);
                     return reject(err);
