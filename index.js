@@ -83,7 +83,7 @@ module.exports = class Email extends Module {
         };
 
         return new Promise((resolve, reject) => {
-            this.log.debug("Sending email to: " + to + " from:" + from + " with subject: " + options.subject + " and html length: " + options.htmlContent + " and text length: " + options.textContent);
+            this.log.debug("Sending email to: " + to + " from:" + from + " with subject: " + options.subject + " and html length: " + options.htmlContent.length + " and text length: " + options.textContent.length);
             return this.transporter.sendMail(mailOptions, (err, info) => {
                 if (err) {
                     this.log.error(err);
